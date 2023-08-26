@@ -10,7 +10,7 @@ public class HelloController {
     
     @GetMapping
     public String inicio(){
-        return "Primer API!!!!!!";
+        return "Primer APIIIIIIII!!!!!!";
     }
     
     @GetMapping("/hola/{nombre}")
@@ -58,5 +58,12 @@ public class HelloController {
         } else respuesta = "Obesidad";
         
         return respuesta;
+    }
+    
+    @GetMapping("/conversor")
+    public String calcularLitros(@RequestParam double galones){
+        double litros = Math.round(3.78541 * galones * 100.0) / 100.0;
+        double galonesRound = (double) Math.round(galones * 100) / 100;
+        return galonesRound + " galones equivalen a " + litros + " litros.";
     }
 }
